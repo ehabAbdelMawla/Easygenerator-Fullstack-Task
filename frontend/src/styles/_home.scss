@@ -1,0 +1,4 @@
+.home-container{
+    @include fillHeight;
+    @include centerChilds;
+}

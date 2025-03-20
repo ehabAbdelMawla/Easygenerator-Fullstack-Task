@@ -1,0 +1,56 @@
+.signin-page,
+.signup-page {
+    @include fillHeight;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    overflow: hidden;
+    font-size: 1rem;
+
+    img {
+        max-width: 250px;
+        margin-inline: auto;
+        width: 100%;
+    }
+
+    form {
+        padding: 20px 10px;
+        @include centerChilds;
+        flex-direction: column;
+
+        .form-control {
+            width: min(100%, 500px);
+            margin-block: 15px;
+
+            span {
+
+                input,
+                .p-component {
+                    width: 100%;
+                }
+
+
+            }
+        }
+
+        .btn-container {
+            width: 100%;
+            @include centerChilds;
+
+            button {
+                font-weight: bold;
+                font-size: 1.5rem;
+                padding: 10px 40px;
+                border-radius: 30px;
+                width: min(100%, 350px);
+                @include centerChilds;
+            }
+        }
+    }
+
+    .navigation-container {
+        text-align: center;
+    }
+}

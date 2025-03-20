@@ -1,0 +1,142 @@
+* {
+	box-sizing: border-box;
+}
+
+// Colors
+$primary-color: #f78c48;
+$danger: #e64c3c;
+$black-color: #121212;
+
+// Dimensions
+$nav-height: 95px;
+
+@mixin reset {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	position: relative;
+	@include reset;
+	overflow-x: hidden;
+}
+
+// Media
+// Small phones
+$screen-tn-max: 450px;
+// Small tablets and large smartphones (landscape view)
+$screen-sm-max: 596px;
+// Small tablets (portrait view)
+$screen-md-max: 768px;
+// Tablets and small desktops
+$screen-lg-max: 992px;
+
+// Phone devices
+@mixin tn {
+	@media (max-width: #{$screen-tn-max}) {
+		@content;
+	}
+}
+
+// Small devices
+@mixin sm {
+	@media (max-width: #{$screen-sm-max}) {
+		@content;
+	}
+}
+
+// Medium devices
+@mixin md {
+	@media (max-width: #{$screen-md-max}) {
+		@content;
+	}
+}
+
+// Large devices
+@mixin lg {
+	@media (max-width: #{$screen-lg-max}) {
+		@content;
+	}
+}
+
+@mixin centerChilds {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin fillHeight {
+	min-height: calc(100dvh - $nav-height);
+}
+
+:root {
+	font-size: 18px;
+	scroll-behavior: smooth;
+	--primary-color: #208fdf;
+
+	@include lg {
+		font-size: 18px;
+	}
+
+	@include md {
+		font-size: 16px;
+	}
+
+	@include sm {
+		font-size: 14px;
+	}
+
+	// @include tn{
+	//     font-size: 10px;
+	// }
+}
+
+.p-button:not(.p-speeddial-button) {
+	background: $primary-color;
+
+	svg {
+		margin-inline-end: 10px;
+	}
+}
+
+.p-component {
+	border-color: $primary-color;
+}
+
+span.error-msg {
+	&.visible {
+		color: $danger;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&.hidden {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&.inline {
+		display: inline-block !important;
+	}
+
+	&.global {
+		margin-block: 15px;
+	}
+}
+
+.p-inputtext,
+.p-dropdown,
+.p-calendar,
+.p-multiselect,
+.p-password,
+.p-icon-field {
+	width: 100%;
+}
+
+.loader-container {
+	position: fixed;
+	z-index: 10;
+	inset: 0;
+	background: #12121211;
+	@include centerChilds;
+}

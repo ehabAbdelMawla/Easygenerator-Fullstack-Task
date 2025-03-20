@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 10px;
+
+    img {
+        max-width: 75px;
+        object-fit: cover;
+    }
+
+
+    .user-info {
+        margin-top: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.75rem;
+        max-width: 200px;
+        color: $primary-color;
+
+        p {
+            margin-block: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        i {
+            font-size: 0.9rem;
+
+            &:first-child {
+                color: $black-color;
+            }
+
+            &:last-child {
+                cursor: pointer;
+                
+            }
+
+        }
+    }
+}
