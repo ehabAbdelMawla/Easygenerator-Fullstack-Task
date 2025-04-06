@@ -16,7 +16,13 @@ import { JwtStrategy } from './strategies/jwt.strategy';
             }
         }, inject: [ConfigService],
     })],
-    providers: [AuthService, JwtStrategy],
+    providers: [AuthService, {
+        provide:JwtStrategy,
+        inject: [ConfigService],
+        useFactory: (configService: ConfigService) => {
+            return new JwtStrategy(configService.get<string>('JWT_SECRET')!);
+        }
+    }],
     controllers: [AuthController]
 })
 export class AuthModule { }

@@ -6,12 +6,12 @@ import { JWT_STRATEGY } from "src/common/constants";
 
 export class JwtStrategy extends PassportStrategy(Strategy, JWT_STRATEGY) {
     constructor(
-        private configService: ConfigService
+        secretOrKey:string
     ) {
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
-            secretOrKey: process.env.JWT_SECRET,
+            secretOrKey,
         });
     }
 
